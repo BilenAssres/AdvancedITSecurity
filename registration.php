@@ -13,14 +13,12 @@ $err= "<font color='red'><h3 align='center'>This user already exists</h3></font>
 }
 else
 {
-//dob
-$dob=$yy."-".$mm."-".$dd;
 
 //encrypt your password
 $pass=md5($p);
 
 
-$query="insert into user values('','$n','$e','$pass','$mob','$gen','$dob',now())";
+$query="insert into user values('','$n','$e','$pass','$mob',now())";
 mysqli_query($conn,$query);
 
 
@@ -36,97 +34,36 @@ $err="<font color='blue'><h3 align='center'>Registration successfull !!<h3></fon
 
 
 		<div class="row">
-		<div class="col-sm-2"></div>
-		<div class="col-sm-8">
+		<div class="col-sm-6">
+		<img class="smo" src="./assets/dist/img/log.png">
+		</div>
+		<div class="col-sm-6" style="padding: 90px; padding-right: 150px;">
 		<form method="post" enctype="multipart/form-data">
-		<table class="table table-bordered" style="margin-bottom:50px">
-	<caption><h2 align="center">Registration Form</h2></caption>
-	<Tr>
-		<Td colspan="2"><?php echo @$err;?></Td>
-	</Tr>
-				
-				<tr>
-					<td>Enter Your name</td>
-					<Td><input  type="text" name="n" class="form-control" required/></td>
-				</tr>
-				<tr>
-					<td>Enter Your email </td>
-					<Td><input type="email" name="e" class="form-control" required/></td>
-				</tr>
-				
-				<tr>
-					<td>Enter Your Password </td>
-					<Td><input type="password" name="p" class="form-control" required/></td>
-				</tr>
-				
-				<tr>
-					<td>Enter Your Mobile </td>
-					<Td><input type="text" name="mob" class="form-control" required/></td>
-				</tr>
+	<h2 style="color: #5b4a99;">Registration Form</h2>
+		<div><?php echo @$err;?></div>
+					<div>Full name</div>
+					<input  type="text" name="n" class="input-field" required style="margin-bottom: 20px;"/>
+
+					<div>Email </div>
+					<input type="email" name="e" class="input-field" required style="margin-bottom: 20px;"/>
 				
 				
-				<tr>
-					<td>Select Your Gender</td>
-					<Td>
-				Male<input type="radio" name="gen" value="m"/>
-				Female<input type="radio" name="gen" value="f"/>	
-					</td>
-				</tr>
+				
+					<div>Password </div>
+					<input type="password" name="p" class="input-field" required style="margin-bottom: 20px;"/>
 				
 				
-				<tr>
-					<td>Enter Your DOB</td>
-					<Td>
-					<select style="width:100px;float:left" name="yy" class="form-control" required>
-					<option value="">Year</option>
-					<?php 
-					for($i=1950;$i<=2016;$i++)
-					{
-					echo "<option>".$i."</option>";
-					}					
-					?>
-					
-					</select>
-					
-					<select style="width:100px;float:left" name="mm" class="form-control" required>
-					<option value="">Month</option>
-					<?php 
-					for($i=1;$i<=12;$i++)
-					{
-					echo "<option>".$i."</option>";
-					}					
-					?>
-					
-					</select>
-					
- 					
-					<select style="width:100px;float:left" name="dd" class="form-control" required>
-					<option value="">Date</option>
-					<?php 
-					for($i=1;$i<=31;$i++)
-					{
-					echo "<option>".$i."</option>";
-					}					
-					?>
-					
-					</select>
-					
-					</td>
-				</tr>
 				
-				<tr>
-					
-					
-<Td colspan="2" align="center">
-<input type="submit" value="Save" class="btn btn-info" name="save"/>
-<!-- <input type="reset" value="Reset" class="btn btn-info"/> -->
+					<div>Mobile Number </div>
+					<input type="text" name="mob" class="input-field" required style="margin-bottom: 20px;"/>
 				
-					</td>
-				</tr>
-			</table>
+					<input type="submit" value="Sign Up" class="submit-btn" name="save" style="font-size: 18px;" />
+
+				
+					</div>
+				
 		</form>
 		</div>
-		<div class="col-sm-2"></div>
-		</div>
+		
 	</body>
 </html>
