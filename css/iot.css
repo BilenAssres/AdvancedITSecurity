@@ -1,0 +1,45 @@
+.login-button{
+    border-radius: 8px;
+    font-size: medium;
+    margin: 0 0.5rem;
+    padding: 0.5rem 2rem;
+    background-color: #F1E4FF;
+    color: #A630F5;
+}
+.signup-button{
+        border-radius: 8px;
+        font-size: medium;
+        margin: 0 0.5rem;
+        padding: 0.5rem 2rem;
+        background-color: #5B4A99;
+        color: white;
+}
+.title {
+    font-size: 4rem;
+}
+.comp-css{
+    border-radius: 25%;
+    padding: 20px;
+}
+.get-started{
+    border-radius: 4px;
+    font-size: medium;
+    padding: 1.25rem 3rem;
+    background-color: #5B4A99;
+    color: white;
+    text-decoration: none;
+}
+.get-started:hover{
+    color: white;
+    text-decoration: none;
+
+}
+.members{
+    background-color: #A9A1CA;
+    border-radius: 1rem;
+    padding: 20px;
+    color: black;
+}
+.center-text{
+    text-align: center;
+}

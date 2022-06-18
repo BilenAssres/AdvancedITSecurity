@@ -18,6 +18,8 @@ session_start();
 
     <!-- Custom CSS -->
     <link href="css/modern-business.css" rel="stylesheet">
+    <link href="css/iot.css" rel="stylesheet">
+
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -27,7 +29,7 @@ session_start();
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background:#66CCFF">
+    <nav class="navbar navbar-fixed-top" role="navigation" style="border-bottom: solid 1px; padding: 10px 0px;">
         <div class="container" >
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -37,7 +39,7 @@ session_start();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php" style="color:#FFFFFF">Online feedback System</a>
+                <a class="navbar-brand" href="index.php" style=" color: #8c30f5; font-size:2rem;">Online feedback System</a>
 				
 				
             </div>
@@ -45,36 +47,15 @@ session_start();
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     
-					 <li style="color:#FFFFFF">
-                        <a style="color:#FFFFFF" href="index.php"><i class="fa fa-home fa-fw"></i>Home</a>
-                    </li>
 					
-					<!-- <li style="color:#FFFFFF">
-                        <a style="color:#FFFFFF" href="index.php?info=about"><i class="fa fa-home fa-fw"></i>About</a>
-                    </li> -->
-					
-					<li><a style="color:#FFFFFF" href="index.php?info=registration"><i class="fa fa-sign-out fa-fw"></i>Registration</a></li>
 				
 				
 								
-	<li class="dropdown">
-        <a style="color:#FFFFFF" href="#" class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-sign-in fa-fw"></i>Login
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          
-          <li><a href="index.php?info=login">Student</a></li>
-		  <!-- <li><a href="index.php?info=faculty_login">Faculty</a></li>  -->
-          <li><a href="admin">Admin</a></li> 
-        </ul>
-      </li> 
-	  
 	
-	  
-	  
-	 <!-- <li>
-                        <a style="color:#FFFFFF" href="index.php?info=contact"><i class="fa fa-phone fa-fw"></i>Contact</a>
-                    </li> -->
-					 	
+        <li><a  href="index.php?info=login" class="login-button">Login</a><li>
+        <li><a  href="index.php?info=registration" class="signup-button"></i>Sign Up</a></li>
+
+    
 					
                    
 
@@ -131,31 +112,34 @@ session_start();
    
 	
     <!-- Page Content -->
-    <div class="container">
-
-               
-			<div class="col-sm-12" style="margin-top:60px;margin-bottom:80px">
-				<h2>About the project and Group members</h2>
-				The app is intended to collect citizens' complaints/ideas they noticed about Addis Ababa City roads such as parking problems, manholes, public property abuse, road defects, and so on. 
-                
+    <div class="container" style="margin-top: 30px;">
+         <div class="row">      
+			<div class="col-sm-6" style="margin-top:60px;margin-bottom:80px">
+				<h1 class="title">About the project</h1>
+				<p style="margin-bottom: 20px;"> The app is intended to collect citizens' complaints/ideas they noticed about Addis Ababa City roads such as parking problems, manholes, public property abuse, road defects, and so on. </p>
+                <a href="index.php?info=registration" class="get-started">Get Started</a>
 			</div>
-            <div class="row" style="margin: 20px;">
-                <div class="col-sm-4">
-                    <h4>Group Members</h4>
+            <div class="col-sm-6">
+                <img class="comp-css" src="./assets/dist/img/complaints.jpg">
+            </div>
+        </div>
+            <div class="row members" style="margin: 20px;">
+                <div class="col-sm-4" align="center">
+                    <h4 style="font-weight: 700;">Group Members</h4>
                     <h5>Adey Amare </h5>
                     <h5>Beza Tsegaye </h5>
                     <h5>Bilen Gizachew</h5>
                     <h5>Hanna Girma</h5>
                 </div>
-                <div class="col-sm-4">
-                    <h4>ID Number</h4>
+                <div class="col-sm-4" align="center">
+                    <h4 style="font-weight: 700;">ID Number</h4>
                     <h5>Adey Amare </h5>
                     <h5>ATR/0075/10</h5>
                     <h5>ATR/0240/10</h5>
                     <h5>Hanna Girma</h5>
                 </div>
-                <div class="col-sm-4">
-                    <h4>Section Number</h4>
+                <div class="col-sm-4" align="center">
+                    <h4 style="font-weight: 700;">Section Number</h4>
                     <h5>Section Two</h5>
                     <h5>Section One </h5>
                     <h5>Section One</h5>
