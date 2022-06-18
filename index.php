@@ -119,8 +119,8 @@ session_start();
 				<p style="margin-bottom: 20px;"> The app is intended to collect citizens' complaints/ideas they noticed about Addis Ababa City roads such as parking problems, manholes, public property abuse, road defects, and so on. </p>
                 <a href="index.php?info=registration" class="get-started">Get Started</a>
 			</div>
-            <div class="col-sm-6">
-                <img class="comp-css" src="./assets/dist/img/complaints.jpg">
+            <div class="col-sm-6" align="right">
+                <div><img class="" src="./assets/dist/img/c.png"></div>
             </div>
         </div>
             <div class="row members" style="margin: 20px;">
