@@ -16,24 +16,12 @@ else
 //dob
 $dob=$yy."-".$mm."-".$dd;
 
-//hobbies
-$hob=implode(",",$hob);
-
-//image
-$imageName=$_FILES['img']['name'];
-
-
 //encrypt your password
 $pass=md5($p);
 
 
-$query="insert into user values('','$n','$e','$pass','$mob','$pro','$sem','$gen','$hob','$imageName','$dob',now())";
+$query="insert into user values('','$n','$e','$pass','$mob','$gen','$dob',now())";
 mysqli_query($conn,$query);
-
-//upload image
-
-mkdir("images/$e");
-move_uploaded_file($_FILES['img']['tmp_name'],"images/$e/".$_FILES['img']['name']);
 
 
 $err="<font color='blue'><h3 align='center'>Registration successfull !!<h3></font>";
@@ -76,33 +64,6 @@ $err="<font color='blue'><h3 align='center'>Registration successfull !!<h3></fon
 					<Td><input type="text" name="mob" class="form-control" required/></td>
 				</tr>
 				
-				<tr>
-					<td>Select Your Programme</td>
-					<Td><select name="pro" class="form-control" required>
-					
-					<option>BCA</option>
-					<option>MCA</option>
-					<option>B.Tech</option>
-					<option>M.Tech</option>
-					</select>
-					</td>
-				</tr>
-				
-				<tr>
-					<td>Select Your Semester</td>
-					<Td><select name="sem" class="form-control" required>
-					
-					<option>i</option>
-					<option>ii</option>
-					<option>iii</option>
-					<option>iv</option>
-					<option>v</option>
-					<option>vi</option>
-					<option>vii</option>
-					<option>viii</option>
-					</select>
-					</td>
-				</tr>
 				
 				<tr>
 					<td>Select Your Gender</td>
@@ -112,21 +73,6 @@ $err="<font color='blue'><h3 align='center'>Registration successfull !!<h3></fon
 					</td>
 				</tr>
 				
-				<tr>
-					<td>Choose Your hobbies</td>
-					<Td>
-					Reading<input value="reading" type="checkbox" name="hob[]"/>
-					Singing<input value="singin" type="checkbox" name="hob[]"/>
-					
-					Playing<input value="playing" type="checkbox" name="hob[]"/>
-					</td>
-				</tr>
-				
-				
-				<tr>
-					<td>Upload  Your Image </td>
-					<Td><input type="file" name="img" class="form-control" required/></td>
-				</tr>
 				
 				<tr>
 					<td>Enter Your DOB</td>
@@ -173,7 +119,7 @@ $err="<font color='blue'><h3 align='center'>Registration successfull !!<h3></fon
 					
 <Td colspan="2" align="center">
 <input type="submit" value="Save" class="btn btn-info" name="save"/>
-<input type="reset" value="Reset" class="btn btn-info"/>
+<!-- <input type="reset" value="Reset" class="btn btn-info"/> -->
 				
 					</td>
 				</tr>

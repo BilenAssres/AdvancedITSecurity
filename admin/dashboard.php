@@ -88,7 +88,7 @@ include('../dbconfig.php');
                             <a href="dashboard.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         
-						<li>
+						<!-- <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i>Faculty<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -98,8 +98,8 @@ include('../dbconfig.php');
                                     <a href="dashboard.php?info=show_faculty"><i class="fa fa-eye"></i> Manage faculty</a>
                                 </li>                           
 							</ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                           
+                        </li> -->
                         
 						
 						<li>
@@ -121,8 +121,8 @@ include('../dbconfig.php');
            <ul class="nav nav-second-level">
                              
 <li><a href="dashboard.php?info=feedback"><i class="fa fa-eye"></i> feedback</a></li>
-<li><a href="dashboard.php?info=feedback_average"><i class="fa fa-eye"></i> feedback Average</a></li>
-	 
+<!-- <li><a href="dashboard.php?info=feedback_average"><i class="fa fa-eye"></i> feedback Average</a></li>
+	  -->
 							             
 							</ul>
                         </li>
@@ -131,10 +131,10 @@ include('../dbconfig.php');
 					
 						
 						
-		<li>
+		<!-- <li>
 			<a href="dashboard.php?info=contact"><i class="fa fa-eye"></i> Contact us</a>
 		</li>
-			   
+			    -->
 				   
 				        
                     </ul>

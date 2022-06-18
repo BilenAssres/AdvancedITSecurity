@@ -40,18 +40,6 @@ function deletes(id)
 		<th>Teacher</th>
 		<th>Quest1</th>
 		<th>Quest2</th>
-		<th>Quest3</th>
-		<th>Quest4</th>
-		<th>Quest5</th>
-		<th>Quest6</th>
-		<th>Quest7</th>
-		<th>Quest8</th>
-		<th>Quest9</th>
-		<th>Quest10</th>
-		<th>Quest11</th>
-		<th>Quest12</th>
-		<th>Quest13</th>
-		<th>Quest14</th>
 		</tr>
 		</thead>
 		
@@ -65,18 +53,7 @@ function deletes(id)
 			echo "<td>".$row[2]."</td>";
 			echo "<td>".$row[3]."</td>";
 			echo "<td>".$row[4]."</td>";
-			echo "<td>".$row[5]."</td>";
-			echo "<td>".$row[6]."</td>";
-			echo "<td>".$row[7]."</td>";
-			echo "<td>".$row[8]."</td>";
-			echo "<td>".$row[9]."</td>";
-			echo "<td>".$row[10]."</td>";
-			echo "<td>".$row[11]."</td>";
-			echo "<td>".$row[12]."</td>";
-			echo "<td>".$row[13]."</td>";
-			echo "<td>".$row[14]."</td>";
-			echo "<td>".$row[15]."</td>";
-			echo "<td>".$row[16]."</td>";
+		
 			//echo "<td><a href='#' onclick='deletes($row[id])'>Delete</a></td>";
 			echo "</tr>";
 		$i++;

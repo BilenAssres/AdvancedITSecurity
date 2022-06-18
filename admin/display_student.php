@@ -19,8 +19,6 @@ function deletes(id)
 	echo "<th>Name</th>";
 	echo "<th>Email</th>";
 	echo "<th>Mobile</th>";
-	echo "<th>Programme</th>";
-	echo "<th>Semester</th>";
 	echo "<th>Regid Id</th>";
 	echo "<th>Delete</th>";
 	echo "</tr>";
@@ -35,8 +33,6 @@ function deletes(id)
 		echo "<td>".$row['name']."</td>";
 		echo "<td>".$row['email']."</td>";
 		echo "<td>".$row['mobile']."</td>";
-		echo "<td>".$row['programme']."</td>";
-		echo "<td>".$row['semester']."</td>";
 		echo "<td>".$row['regid']."</td>";
 		
 		
