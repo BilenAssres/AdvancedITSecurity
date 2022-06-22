@@ -3,14 +3,20 @@ extract($_POST);
 if(isset($sub))
 {
 $user=$_SESSION['user'];
+$s=mysqli_query($conn,"select id from feedback where student_id='$user'");
+$idn =mysqli_fetch_assoc($s);
+$id=$idn['id'];
+echo $id;
+// $_SESSION['idn']= $idn;
+// $idnt=$_SESSION['idn'];
+// $strp= implode(" =>",$idnt);
+$query="update feedback set complaints='$quest12' where id='$id' ";
 
-$sql=mysqli_query($conn,"select * from feedback where student_id='$user'");
-
-$query="insert into feedback values('','$user','$quest13',now())";
 
 mysqli_query($conn,$query);
 
-echo "<h2 style='color:green'>Thank you </h2>";
+echo "<h2 style='color:green'>Updated </h2>";
+
 
 }
 
@@ -22,10 +28,9 @@ echo "<h2 style='color:green'>Thank you </h2>";
 
 
 
-
-<h3>Complaint:<h3>
+<h3>Update Complaint:<h3>
 <center>
-<textarea name="quest13" rows="5" cols="60" id="comments" style="font-family:sans-serif;font-size:1.2em;">
+<textarea name="quest12" rows="5" cols="60" id="comments" style="font-family:sans-serif;font-size:1.2em;">
 
 </textarea></center><br><br>
 

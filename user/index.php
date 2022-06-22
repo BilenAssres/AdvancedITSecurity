@@ -1,3 +1,14 @@
+<script type="text/javascript">
+function deletess(id)
+{
+	a=confirm('Are You Sure To Edit This Record ?')
+	 if(a)
+     {
+        window.location.href='delete_feedback.php?id='+id;
+     }
+}
+</script>	
+
 <?php 
 session_start();
 include('../dbconfig.php');
@@ -5,8 +16,8 @@ $user= $_SESSION['user'];
 if($user=="")
 {header('location:../index.php');}
 $sql=mysqli_query($conn,"select * from user where email='$user' ");
+$q=mysqli_query($conn,"select * from feedback where student_id= '$user' ");
 $users=mysqli_fetch_assoc($sql);
-//print_r($users);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,6 +115,11 @@ $users=mysqli_fetch_assoc($sql);
 				include('give_feedback.php');
 			
 			}
+      if($page=="update_feedback")
+			{
+				include('update_feedback.php');
+			
+			}
 		  }
 		  else
 		  {
@@ -114,35 +130,50 @@ $users=mysqli_fetch_assoc($sql);
 		  
 		  
 		  <h1 class="page-header">Dashboard</h1>
-		  
-		  
-		  
-		  
-		  
-		  
+		  <h6> Previous Complaints</h6>
+      <div class="row">
 
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
+<div class="col-sm-12">
+
+<table class="table table-bordered">
+
+	<thead >
+	
+	<tr class="success">
+		<th>Sr.No</th>
+		<th>Date</th>
+		<th>Complaint</th>
+    <th>Edit</th>
+    <th>Delete</th>
+		
+		</tr>
+		</thead>
+		
+		<?php
+		$i=1;
+	while($row=mysqli_fetch_array($q))
+		{
+			echo "<tr>";
+			echo "<td>".$i."</td>";
+			// echo "<td>".$row[1]."</td>";
+			echo "<td>".$row[3]."</td>";
+			echo "<td>".$row[2]."</td>";
+      echo "<td class='text-center'><a href='index.php?page=update_feedback')'><span class='glyphicon glyphicon-edit'></span></a></td>";
+      echo "<td class='text-center'><a href='#' onclick='deletess($row[id])'><span class='glyphicon glyphicon-remove'  style=color:red;></span></a></td>";
+		
+		
+			echo "</tr>";
+		$i++;
+		}
+		
+		?>
+		
+	
+		
+</table>
+</div>
+</div>
+      
 <?php } ?>
         
           

@@ -36,9 +36,10 @@ function deletes(id)
 	
 	<tr class="success">
 		<th>Sr.No</th>
-		<th>Student</th>
-		<th>Teacher</th>
-		<th>Quest1</th>
+		<th>Civilian Name</th>
+		<th>Date</th>
+		<th>Comlaint</th>
+		
 		</tr>
 		</thead>
 		
@@ -49,11 +50,8 @@ function deletes(id)
 			echo "<tr>";
 			echo "<td>".$i."</td>";
 			echo "<td>".$row[1]."</td>";
-			echo "<td>".$row[2]."</td>";
 			echo "<td>".$row[3]."</td>";
-			// echo "<td>".$row[4]."</td>";
-		
-			// echo "<td><a href='#' onclick='deletes($row[id])'>Delete</a></td>";
+			echo "<td>".$row[2]."</td>";
 			echo "</tr>";
 		$i++;
 		}
