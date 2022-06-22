@@ -1,5 +1,5 @@
 <?php 
-$q=mysqli_query($conn,"select * from feedback");
+$q=mysqli_query($conn,"select * from feedback where ");
 $r=mysqli_num_rows($q);
 if($r==false)
 {
