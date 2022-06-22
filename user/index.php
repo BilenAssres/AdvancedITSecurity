@@ -16,11 +16,14 @@ $user= $_SESSION['user'];
 if($user=="")
 {header('location:../index.php');}
 $sql=mysqli_query($conn,"select * from user where email='$user' ");
-$q=mysqli_query($conn,"select * from feedback where student_id= '$user' ");
+$q=mysqli_query($conn,"select * from feedback where email= '$user' ");
 $users=mysqli_fetch_assoc($sql);
+if (empty($_SESSION['token'])) {
+  $_SESSION['token'] = bin2hex(random_bytes(32));
+}
 
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html>p
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -31,7 +34,7 @@ $users=mysqli_fetch_assoc($sql);
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Faculty feedback System</title>
+    <title>Feedback System</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -143,7 +146,9 @@ $users=mysqli_fetch_assoc($sql);
 	<tr class="success">
 		<th>Sr.No</th>
 		<th>Date</th>
-		<th>Complaint</th>
+		<th>Feedback</th>
+    <th>File</th>
+
     <th>Edit</th>
     <th>Delete</th>
 		
@@ -155,10 +160,12 @@ $users=mysqli_fetch_assoc($sql);
 	while($row=mysqli_fetch_array($q))
 		{
 			echo "<tr>";
-			echo "<td>".$i."</td>";
+			echo "<td>".htmlspecialchars( $i)."</td>";
 			// echo "<td>".$row[1]."</td>";
-			echo "<td>".$row[3]."</td>";
-			echo "<td>".$row[2]."</td>";
+			echo "<td>".htmlspecialchars($row[6])."</td>";
+			echo "<td>".htmlspecialchars($row[4])."</td>";
+      echo "<td> <a href='../uploads/".htmlspecialchars($row[5])."'>Download</a>  </td>";
+
       echo "<td class='text-center'><a href='index.php?page=update_feedback')'><span class='glyphicon glyphicon-edit'></span></a></td>";
       echo "<td class='text-center'><a href='#' onclick='deletess($row[id])'><span class='glyphicon glyphicon-remove'  style=color:red;></span></a></td>";
 		

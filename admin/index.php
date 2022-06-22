@@ -4,15 +4,17 @@
 	extract($_POST);
 	if(isset($login))
 	{
-$que=mysqli_query($conn,"select user and pass from admin where user='$email' and pass='$pass'");
-		$row=mysqli_num_rows($que);
-		if($row)
-			{	
-				$_SESSION['user']=$email;
-				header('location:dashboard.php');
-			}
-		else
-			{
+        
+        
+
+        $sql=mysqli_query($conn,"select * from admin where user='$email'");
+        $r=mysqli_num_rows($sql);
+
+        if($r==true && password_verify($pass, $r['pass']))
+        {
+            $_SESSION['user']=$email;
+            header('location:dashboard.php');
+        }else{
 				$err="<font color='red'>Wrong Email or Password !</font>";
 			}
 	}

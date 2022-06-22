@@ -4,7 +4,7 @@ function deletes(id)
 	a=confirm('Are You Sure To Remove This Record ?')
 	 if(a)
      {
-        window.location.href='delete_student.php?id='+id;
+        window.location.href='delete_members.php?id='+id;
      }
 }
 </script>	

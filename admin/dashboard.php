@@ -91,11 +91,11 @@ include('../dbconfig.php');
 				
 						
 						<li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i>Civilian<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i>Members<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 
 								 <li>
-                                    <a href="dashboard.php?info=display_student"><i class="fa fa-eye"></i> Manage Civilian</a>
+                                    <a href="dashboard.php?info=display_members"><i class="fa fa-eye"></i> Manage Members</a>
                                 </li> 
 							             
 							</ul>
@@ -157,9 +157,9 @@ include('../dbconfig.php');
 											include('edit_faculty.php');
 										}	
 										
-									elseif($info=="display_student")
+									elseif($info=="display_members")
 										{
-											include('display_student.php');
+											include('display_members.php');
 										}
 									
 										

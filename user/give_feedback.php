@@ -1,45 +1,109 @@
 <?php 
+
+
+
+
 extract($_POST);
-if(isset($sub))
-{
-$user=$_SESSION['user'];
 
-$sql=mysqli_query($conn,"select * from feedback where student_id='$user'");
+$statusMsg = '';
+$targetDir = "../uploads/";
+$honeypot= null;
 
-$query="insert into feedback values('','$user','$quest13',now())";
+if(isset($sub) && !empty($_FILES["feedbackfile"]) ){
+  if ($_POST['honeypot'] !=0) {
+    $statusMsg = "Are you a bot?";
+    
+  }else{
+  $token = filter_input(INPUT_POST, 'token', FILTER_SANITIZE_STRING);
+  if (!empty($_POST['token'])) {
+    if (hash_equals($_SESSION['token'], $_POST['token'])) {
+   
+      if($honeypot==0){
+        $filepath = $_FILES['feedbackfile']['tmp_name'];
+        $fileName = basename($_FILES["feedbackfile"]["name"]);
+        $targetFilePath = $targetDir. $fileName;
+        $fileType = pathinfo($fileName,PATHINFO_EXTENSION);
+        $allowTypes = array('pdf');
+        $fileSize = filesize($filepath);
+        $fileinfo = finfo_open(FILEINFO_MIME_TYPE);
+        $filetype = finfo_file($fileinfo, $filepath);
+    
+        if ($fileSize === 0) {
+          $statusMsg = "Empty File .";
+        }
+    
+        if ($fileSize > 20971520) { 
+          $statusMsg = "File too big .";
+        }
+    
+        if ($filetype != "application/pdf") {
+           
+          $statusMsg = "Wrong file .";
+        }
+    
+        if(in_array($fileType, $allowTypes)){
+          $now= time();
+          $date=date("Y-m-d",$now);
+            if(move_uploaded_file($_FILES["feedbackfile"]["tmp_name"], $targetFilePath)){
+              $query="INSERT INTO  feedback(Name,email,comment,file,date) values (?,?,?,?,?)";
+              $stmt = mysqli_stmt_init($conn);
+              mysqli_stmt_prepare($stmt, $query);
+              
+              mysqli_stmt_bind_param($stmt, "sssss", $complaint_giver_name,$user,$quest13,$fileName, $date);
+              if(mysqli_stmt_execute($stmt)){
+                $statusMsg = "The feedback has been uploaded successfully.";
+    
+              }else{
+                $statusMsg = "Feedback failed, please try again.";
+    
+              }
+               
+            }else{
+                $statusMsg = "Sorry, there was an error uploading your file.";
+            }
+        }else{
+            $statusMsg = 'Sorry, only PDF files are allowed to upload.';
+        }
+      }else{
+          $statusMsg = 'Abnormal Activity, try again!' ;
+        }
+    }
+    else{
+      $statusMsg = "Weird actions reported!";
+     
 
-mysqli_query($conn,$query);
-
-echo "<h2 style='color:green'>Thank you </h2>";
-
+    }
+  }}
 
 
-$imageName=$_FILES['img']['name'];
-$query="insert into user values('','$imageName',now())";
-mysqli_query($conn,$query);
-
-//upload image
-move_uploaded_file($_FILES['img']['tmp_name'],"images/".$_FILES['img']['name']);
-var_dump($_FILES["img"]);
+ 
+}else{
+    $statusMsg = 'Please select a file tooad.' ;
 }
+
+echo $statusMsg;
 ?>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 
 
 
 
 
 
-<h3>Complaint:<h3>
-<center>
+<h3>Feedback:<h3>
+
+
+<p>Name</p>
+<input name="complaint_giver_name" type="text">
+<p>Comments</p>
 <textarea name="quest13" rows="5" cols="60" id="comments" style="font-family:sans-serif;font-size:1.2em;">
 
-</textarea></center><br><br>
+</textarea><br><br>
 <div>Upload  the file </div>
-					<div><input type="file" name="img" class="form-control"/></div>
-          
-
-<p align="center"><button type="submit" style="font-size:7pt;color:white;background-color:brown;border:2px solid #336600;padding:7px" name="sub">Submitt</button></p>
+<div><input type="file"  name="feedbackfile" id="feedbackfile" class="form-control"/></div>
+<input type="text" name="honeypot" id="honeypot" hidden value="0">
+<input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?? '' ?>">
+<button type="submit" style="font-size: 1.5rem;color:white;background-color:#5B4A99;border: none;padding:10px; width:100%; margin-top:1rem;" name="sub">Submit</button>
 
 
 

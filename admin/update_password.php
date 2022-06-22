@@ -7,7 +7,7 @@ if(isset($update_password))
 	$que=mysqli_query($conn,"select pass from admin");
 	$row=mysqli_fetch_array($que);
     $pass=$row['pass'];
-	if($op!=$pass)
+	if(password_verify($op,$pass))
 		{
 		$err="<font color='red'>You Enterd wrong old password</font>";
 		}
@@ -18,6 +18,7 @@ if(isset($update_password))
 		}
 	else
 	{
+		$cp=password_hash($cp,PASSWORD_DEFAULT);
 		mysqli_query($conn,"update admin set pass='$cp'");
 		$err="<font color='green'>Password have been Changed successfully !!</font>";
 	}

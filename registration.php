@@ -7,7 +7,7 @@ $sql=mysqli_query($conn,"select * from user where email='$e'");
 
 $r=mysqli_num_rows($sql);
 
-if($r==true)
+if($r==1)
 {
 $err= "<font color='red'><h3 align='center'>This user already exists</h3></font>";
 }
@@ -18,11 +18,17 @@ else
 $pass=md5($p);
 
 
-$query="insert into user values('','$n','$e','$pass','$mob',now())";
-mysqli_query($conn,$query);
+$query="insert into user (name,email,pass,mobile) values('$n','$e','$pass','$mob')";
+if(mysqli_query($conn,$query)){
+	$_SESSION['user']=$e;
+	header('location:user');
+}
+else{
+	$err=mysqli_error($conn);
+}
 
 
-$err="<font color='blue'><h3 align='center'>Registration successfull !!<h3></font>";
+
 
 }
 }
