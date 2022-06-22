@@ -1,7 +1,12 @@
 <?php 
 
 
-
+$user= $_SESSION['user'];
+if($user=="")
+{header('location:../index.php');}
+$sql=mysqli_query($conn,"select * from user where email='$user' ");
+$q=mysqli_query($conn,"select * from feedback where email= '$user' ");
+$users=mysqli_fetch_assoc($sql);
 
 extract($_POST);
 
@@ -49,7 +54,7 @@ if(isset($sub) && !empty($_FILES["feedbackfile"]) ){
               $stmt = mysqli_stmt_init($conn);
               mysqli_stmt_prepare($stmt, $query);
               
-              mysqli_stmt_bind_param($stmt, "sssss", $complaint_giver_name,$user,$quest13,$fileName, $date);
+              mysqli_stmt_bind_param($stmt, "sssss", $users['name'],$user,$quest13,$fileName, $date);
               if(mysqli_stmt_execute($stmt)){
                 $statusMsg = "The feedback has been uploaded successfully.";
     
@@ -93,8 +98,7 @@ echo $statusMsg;
 <h3>Feedback:<h3>
 
 
-<p>Name</p>
-<input name="complaint_giver_name" type="text">
+
 <p>Comments</p>
 <textarea name="quest13" rows="5" cols="60" id="comments" style="font-family:sans-serif;font-size:1.2em;">
 

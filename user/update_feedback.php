@@ -7,9 +7,7 @@ $s=mysqli_query($conn,"select id from feedback where student_id='$user'");
 $idn =mysqli_fetch_assoc($s);
 $id=$idn['id'];
 echo $id;
-// $_SESSION['idn']= $idn;
-// $idnt=$_SESSION['idn'];
-// $strp= implode(" =>",$idnt);
+
 $query="update feedback set complaints='$quest12' where id='$id' ";
 
 
