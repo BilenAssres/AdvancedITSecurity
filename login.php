@@ -37,7 +37,7 @@ $err="<font color='red'>Invalid login details</font>";
 		</div>
 		<div class="col-sm-6" style="padding: 90px; padding-right: 150px;">
 
-<form method="post">
+<form method="post" auto_complete="off">
 	<h2 style="color: #5b4a99;">Login Form</h2>
 	
 	<?php echo @$err;?>

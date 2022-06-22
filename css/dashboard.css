@@ -32,6 +32,7 @@ body {
 /* Hide for mobile, show later */
 .sidebar {
   display: none;
+  padding-top: 0pc;
 }
 @media (min-width: 768px) {
   .sidebar {
@@ -39,6 +40,7 @@ body {
     top: 51px;
     bottom: 0;
     left: 0;
+    padding-top: 0pc;
     z-index: 1000;
     display: block;
     padding: 20px;
@@ -54,16 +56,18 @@ body {
   margin-right: -21px; /* 20px padding + 1px border */
   margin-bottom: 20px;
   margin-left: -20px;
+  padding-top: 0pc;
 }
 .nav-sidebar > li > a {
   padding-right: 20px;
   padding-left: 20px;
+  
 }
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
   color: #fff;
-  background-color: #428bca;
+  background-color: #5B4A99;
 }
 
 

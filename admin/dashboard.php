@@ -57,7 +57,7 @@ include('../dbconfig.php');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.php">Faculty Feedback System</a>
+                <a class="navbar-brand" href="dashboard.php">Online Feedback System</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -88,26 +88,14 @@ include('../dbconfig.php');
                             <a href="dashboard.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         
-						<!-- <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i>Faculty<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="dashboard.php?info=add_faculty"><i class="fa fa-plus fa-fw"></i> Add Faculty</a>
-                                </li>
-								 <li>
-                                    <a href="dashboard.php?info=show_faculty"><i class="fa fa-eye"></i> Manage faculty</a>
-                                </li>                           
-							</ul>
-                           
-                        </li> -->
-                        
+				
 						
 						<li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i>Student<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i>Civilian<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 
 								 <li>
-                                    <a href="dashboard.php?info=display_student"><i class="fa fa-eye"></i> Manage Student</a>
+                                    <a href="dashboard.php?info=display_student"><i class="fa fa-eye"></i> Manage Civilian</a>
                                 </li> 
 							             
 							</ul>

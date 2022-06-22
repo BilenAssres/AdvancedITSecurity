@@ -39,7 +39,6 @@ function deletes(id)
 		<th>Student</th>
 		<th>Teacher</th>
 		<th>Quest1</th>
-		<th>Quest2</th>
 		</tr>
 		</thead>
 		
@@ -52,9 +51,9 @@ function deletes(id)
 			echo "<td>".$row[1]."</td>";
 			echo "<td>".$row[2]."</td>";
 			echo "<td>".$row[3]."</td>";
-			echo "<td>".$row[4]."</td>";
+			// echo "<td>".$row[4]."</td>";
 		
-			//echo "<td><a href='#' onclick='deletes($row[id])'>Delete</a></td>";
+			// echo "<td><a href='#' onclick='deletes($row[id])'>Delete</a></td>";
 			echo "</tr>";
 		$i++;
 		}

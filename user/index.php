@@ -43,7 +43,7 @@ $users=mysqli_fetch_assoc($sql);
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" style="background:#428bca">
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="background:#5B4A99">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">

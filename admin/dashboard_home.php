@@ -4,7 +4,7 @@
 //all emegency compalints
 $q=mysqli_query($conn,"select * from user");
 $r1=mysqli_num_rows($q);			
-echo "<h2 style='color:orange'>Total Number of Student : $r1</h2>";	
+echo "<h2 style='color:orange'>Total Number of users : $r1</h2>";	
 
 
 //all users
