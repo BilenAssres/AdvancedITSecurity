@@ -1,3 +1,4 @@
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <?php 
 extract($_POST);
 if(isset($save))
@@ -48,6 +49,7 @@ if(isset($save))
 		<input type="email" name="e" class=" input-field" style="margin-bottom: 20px;"/>
 		<div>Password</div>
 		<input type="password" name="p" class="input-field" style="margin-bottom: 20px;"/>
+		<div class="g-recaptcha" data-sitekey="6LctkJEgAAAAAB9BSrVnM_fd3gJTX4VhrDEta7uR"></div>
 	
 		<input type="submit" value="Login" name="save" class="submit-btn" style="font-size: 18px;"/>
 		

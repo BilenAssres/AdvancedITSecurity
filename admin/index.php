@@ -1,3 +1,4 @@
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <?php
 	include('../dbconfig.php');
 	session_start();
@@ -73,7 +74,7 @@
                                     <input class="form-control" placeholder="Password" name="pass" type="password" required>
                                 </div>
                                 
-                                
+                                <div class="g-recaptcha" data-sitekey="6LctkJEgAAAAAB9BSrVnM_fd3gJTX4VhrDEta7uR"></div>
 								<div class="form-group">
                                     <input name="login" type="submit" value="Login" class="btn btn-lg btn-success btn-block">
                                 </div>

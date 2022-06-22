@@ -1,3 +1,4 @@
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <?php 
 extract($_POST);
 if(isset($save))
@@ -78,6 +79,7 @@ else
 				
 					<div>Mobile Number </div>
 					<input type="text" name="mob" class="input-field" required style="margin-bottom: 20px;"/>
+					<div class="g-recaptcha" data-sitekey="6LctkJEgAAAAAB9BSrVnM_fd3gJTX4VhrDEta7uR"></div>
 				
 					<input type="submit" value="Sign Up" class="submit-btn" name="save" style="font-size: 18px;" />
 
