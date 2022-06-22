@@ -18,6 +18,7 @@ if($user=="")
 $sql=mysqli_query($conn,"select * from user where email='$user' ");
 $q=mysqli_query($conn,"select * from feedback where student_id= '$user' ");
 $users=mysqli_fetch_assoc($sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
