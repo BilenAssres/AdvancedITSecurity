@@ -133,10 +133,10 @@ session_start();
                 </div>
                 <div class="col-sm-4" align="center">
                     <h4 style="font-weight: 700;">ID Number</h4>
-                    <h5>Adey Amare </h5>
+                    <h5>ATR/7817/10 </h5>
                     <h5>ATR/0075/10</h5>
                     <h5>ATR/0240/10</h5>
-                    <h5>Hanna Girma</h5>
+                    <h5>ATR/3076/10</h5>
                 </div>
                 <div class="col-sm-4" align="center">
                     <h4 style="font-weight: 700;">Section Number</h4>
