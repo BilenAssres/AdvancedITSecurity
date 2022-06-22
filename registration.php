@@ -3,6 +3,10 @@ extract($_POST);
 if(isset($save))
 {
 //check user alereay exists or not
+if($e=="" || $p==""|| $n=="" || $mob==""){
+	$err="<font color='red'>fill all the fileds first</font>";	
+}else{
+
 $sql=mysqli_query($conn,"select * from user where email='$e'");
 
 $r=mysqli_num_rows($sql);
@@ -15,23 +19,35 @@ else
 {
 
 //encrypt your password
-$pass=md5($p);
+	$pass=password_hash($p,PASSWORD_DEFAULT);
 
 
-$query="insert into user (name,email,pass,mobile) values('$n','$e','$pass','$mob')";
-if(mysqli_query($conn,$query)){
-	$_SESSION['user']=$e;
-	header('location:user');
+	$query="INSERT into user (name,email,pass,mobile) values(?,?,?,?)";
+	$stmt = mysqli_stmt_init($conn);
+	mysqli_stmt_prepare($stmt, $query);
+		  
+	mysqli_stmt_bind_param($stmt, "ssss", $n,$e,$pass,$mob);
+	if(mysqli_stmt_execute($stmt)){
+	
+		  
+			$_SESSION['user'] = $e;
+			header('location:user');
+			die();
+	
+
+	}else{
+		$err="<font color='red'>Login Failed </font>";
+
+	}
 }
-else{
-	$err=mysqli_error($conn);
-}
 
 
 
 
 }
 }
+
+
 
 
 

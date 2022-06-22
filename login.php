@@ -2,33 +2,35 @@
 extract($_POST);
 if(isset($save))
 {
-
-	if($e=="" || $p=="")
-	{
-	$err="<font color='red'>fill all the fileds first</font>";	
+	if($e=="" || $p==""){
+		$err="<font color='red'>fill all the fileds first</font>";	
+	}else{
+		$query="SELECT * FROM user WHERE email=? LIMIT 1";
+        $stmt = mysqli_stmt_init($conn);
+        mysqli_stmt_prepare($stmt, $query);
+              
+        mysqli_stmt_bind_param($stmt, "s", $e);
+        if(mysqli_stmt_execute($stmt)){
+			$result = mysqli_stmt_get_result($stmt);
+			$row = mysqli_fetch_array($result);
+			
+            if (password_verify($p, $row["pass"])) {
+              
+                $_SESSION['user'] = $e;
+                header('location:user');
+                die();
+            } else {
+				$err="<font color='red'>Invalid login details</font>";
+            }
+    
+        }else{
+			$err="<font color='red'>Login Failed </font>";
+    
+        }
 	}
-	else
-	{
-$pass=md5($p);	
-
-$sql=mysqli_query($conn,"select * from user where email='$e' and pass='$pass'");
-
-$r=mysqli_num_rows($sql);
-
-if($r==true)
-{
-$_SESSION['user']=$e;
-header('location:user');
 }
 
-else
-{
 
-$err="<font color='red'>Invalid login details</font>";
-
-}
-}
-}
 
 ?>
 <div class="row">
