@@ -35,16 +35,16 @@ if(isset($sub) && !empty($_FILES["feedbackfile"]) ){
     
         if ($fileSize === 0) {
           $statusMsg = "Empty File .";
-        }
+        }else{
     
         if ($fileSize > 20971520) { 
           $statusMsg = "File too big .";
-        }
+        }else{
     
         if ($filetype != "application/pdf") {
            
-          $statusMsg = "Wrong file .";
-        }
+          $statusMsg = "Wrong file";
+        }else{
     
         if(in_array($fileType, $allowTypes)){
           $now= time();
@@ -68,7 +68,7 @@ if(isset($sub) && !empty($_FILES["feedbackfile"]) ){
             }
         }else{
             $statusMsg = 'Sorry, only PDF files are allowed to upload.';
-        }
+        }}}}
       }else{
           $statusMsg = 'Abnormal Activity, try again!' ;
         }
@@ -104,7 +104,7 @@ echo $statusMsg;
 
 </textarea><br><br>
 <div>Upload  the file </div>
-<div><input type="file"  name="feedbackfile" id="feedbackfile" class="form-control"/></div>
+<div><input type="file" accept="application/pdf" name="feedbackfile" id="feedbackfile" class="form-control"/></div>
 <input type="text" name="honeypot" id="honeypot" hidden value="0">
 <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?? '' ?>">
 <button type="submit" style="font-size: 1.5rem;color:white;background-color:#5B4A99;border: none;padding:10px; width:100%; margin-top:1rem;" name="sub">Submit</button>
