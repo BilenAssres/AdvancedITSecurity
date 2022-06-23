@@ -1,27 +1,5 @@
 <?php 
-extract($_POST);
-if(isset($sub) || isset($query))
-{
-$user=$_SESSION['user'];
-$s=mysqli_query($conn,"select id from feedback where student_id='$user'");
-$idn =mysqli_fetch_assoc($s);
-$id=$idn['id'];
-echo $id;
-$query="update feedback set complaints='$quest13' where id='$id' ";
 
-
-mysqli_query($conn,$query);
-
-echo "<h2 style='color:green'>Updated </h2>";
-
-
-}
-
-
-?>
-
-
-<?php 
 extract($_POST);
 
 $statusMsg = '';
@@ -36,7 +14,14 @@ if(isset($sub) && !empty($_FILES["feedbackfile"])){
 
     if(in_array($fileType, $allowTypes)){
         if(move_uploaded_file($_FILES["feedbackfile"]["tmp_name"], $targetFilePath)){
-          $query="insert into feedback(Name,email,comment,file,date) values('$user','$quest13','".$fileName."', ".'now()'.")";
+          $user=$_SESSION['user'];
+          $s=mysqli_query($conn,"select id from feedback where student_id='$user'");
+          $idn =mysqli_fetch_assoc($s);
+          if($idn){
+          $id=$idn['id'];
+          echo $id;
+          $query="update feedback set complaints='quest13', file='".$fileName."' where id='$id'";
+          mysqli_query($conn,$query);
 
           if(mysqli_query($conn,$query)){
             $statusMsg = "The feedback has been uploaded successfully.";
@@ -54,6 +39,7 @@ if(isset($sub) && !empty($_FILES["feedbackfile"])){
     }
 }else{
     $statusMsg = 'Please select a file tooad.' ;
+}
 }
 
 echo $statusMsg;
